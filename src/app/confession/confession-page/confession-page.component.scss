@@ -1,0 +1,41 @@
+.confession {
+
+  textarea {
+    min-width: 350px;
+    min-height: 300px;
+  }
+
+  .category-container {
+    overflow-y: auto;
+    max-height: 400px
+  }
+
+  .category {
+    border: 1px solid rgba(243, 73, 42, 1);
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    min-height: 50px;
+    width: 180px;
+    background: rgb(255, 206, 159);
+    background: linear-gradient(180deg, rgba(255, 206, 159, 1) 0%, rgba(243, 73, 42, 1) 100%);
+    font-family: cursive;
+
+  }
+
+  .category:hover {
+    background: rgba(243, 73, 42, 1)
+  }
+
+  .done-message-1 {
+    color: rgba(243, 73, 42, 1);
+    font-size: 1.7rem;
+    max-width: 250px;
+    text-align: center;
+    line-height: 1.2;
+    font-family: cursive;
+  }
+}

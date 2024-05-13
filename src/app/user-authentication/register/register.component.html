@@ -1,0 +1,43 @@
+<div class="register">
+  <div class="w-full max-w-xs">
+    <form class="px-8 pt-6 pb-8 mb-4 flex flex-col gap-y-3" [formGroup]="fgRegister">
+
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Username
+        </label>
+        <app-input id="username" type="text" placeholder="Username" [control]="fgRegister.get('username')"></app-input>
+      </div>
+
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+          Password
+        </label>
+        <app-input id="password" type="password" placeholder="Password"
+          [control]="fgRegister.get('password')"></app-input>
+      </div>
+
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Name
+        </label>
+        <app-input id="name" type="text" placeholder="Name" [control]="fgRegister.get('name')"></app-input>
+      </div>
+
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Department
+        </label>
+        <app-dropdown selectLabel="Select Options" [items]="departments"
+          [control]="fgRegister.get('department')"></app-dropdown>
+      </div>
+
+      <div class="flex justify-between gap-x-5">
+        <app-button type="primary" text="Register" (click)="register()" [disabled]="!fgRegister.valid"></app-button>
+        <app-button type="primary" text="Back" (click)="goBack()"></app-button>
+      </div>
+
+
+    </form>
+  </div>
+</div>

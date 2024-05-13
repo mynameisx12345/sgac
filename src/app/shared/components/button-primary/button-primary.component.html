@@ -1,0 +1,12 @@
+<div [ngSwitch]="type">
+  <button *ngSwitchCase="'primary'" type="button"
+    class="font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" [ngClass]="{
+    'disabled':
+    disabled,
+      'primary  text-white ':
+        !disabled,
+    
+    }" [disabled]="disabled">
+    {{ text }}
+  </button>
+</div>

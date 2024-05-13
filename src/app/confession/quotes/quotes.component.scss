@@ -1,0 +1,16 @@
+.quotes {
+  .quotes-cont {
+    max-height: 410px;
+    overflow-y: auto;
+
+    .quote {
+      color: white;
+      border-radius: 10px;
+      border: 1px solid rgba(243, 73, 42, 1);
+      padding: 10px;
+      width: 300px;
+      background: rgb(255, 206, 159);
+      background: linear-gradient(180deg, rgba(255, 206, 159, 1) 0%, rgba(243, 73, 42, 1) 100%);
+    }
+  }
+}

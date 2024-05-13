@@ -1,0 +1,43 @@
+<div class="confession">
+  <div class="flex flex-col gap-y-5 items-center" *ngIf="step === '1'" [formGroup]="fgConfession">
+    <div class="flex flex-col">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="confession">
+        Love yourself and confess here.
+      </label>
+      <textarea placeholder="Write your confession here" id="confession" formControlName="confession"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+    </div>
+
+    <div>
+      <app-button type="primary" text="I'll be alright" (click)="next()"
+        [disabled]="!fgConfession.get('confession').value"></app-button>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-y-5 items-center category-container" *ngIf="step === '2'">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="confession">
+      You're almost there, select a category.
+    </label>
+    <div class="flex flex-col gap-y-4 overflow-y-auto">
+      <div class="category" [style.background]="
+          category.value === fgConfession.get('category').value
+            ? 'rgba(243, 73, 42, 1)'
+            : null
+        " *ngFor="let category of categories" (click)="selectCategory(category)">
+        {{ category.label }}
+      </div>
+    </div>
+
+    <div class="flex flex-row justify-between gap-x-5">
+      <app-button type="primary" text="I'm Done!" [disabled]="fgConfession.invalid" (click)="done()"></app-button>
+      <app-button type="primary" text="Back" (click)="back()"></app-button>
+    </div>
+  </div>
+  <div class="flex flex-col gap-y-5 items-center" *ngIf="step === '3'">
+    <span class="done-message-1">You are doing great! One of our counselors will respond to you soon just hang in
+      there buddy.</span>
+    <span class="w-80 text-center">For a meantime, you can check our motivational quotes about
+      {{selectedCategory}}</span>
+    <app-button type="primary" text="Show Quotes" (click)="showQuotes()"></app-button>
+  </div>
+</div>

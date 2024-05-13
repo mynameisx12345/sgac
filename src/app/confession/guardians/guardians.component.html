@@ -1,0 +1,16 @@
+<div class="guardians">
+  <div class="flex flex-col gap-y-5">
+    <label class="block text-gray-700 text-sm font-bold mb-2">
+      Assign a guardian
+    </label>
+    <div class="flex flex-col guardians-cont">
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="flex flex-col" [(ngModel)]="selectedGuardian">
+        <mat-radio-button class="example-radio-button" *ngFor="let guardian of guardians" [value]="guardian.id">
+          {{guardian.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <app-button type="primary" text="Select"></app-button>
+
+  </div>
+</div>

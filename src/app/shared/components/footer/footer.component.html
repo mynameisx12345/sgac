@@ -1,0 +1,17 @@
+<div class="footer pb-5">
+  <div class="w-full flex flex-row items-center justify-center gap-x-5 footer-container"
+    [ngStyle]="{display: (showFooter | async) ? 'none' : null}">
+    <div class="icon" (click)="home()">
+      <img src="./../../../../assets/images/home-icon.png" height="70px" width="auto">
+    </div>
+    <div class="icon">
+      <img src="./../../../../assets/images/icon-2.png" height="70px" width="auto">
+    </div>
+    <div class="icon" (click)="confessions()">
+      <img src="./../../../../assets/images/icon-3.png" height="70px" width="auto">
+    </div>
+    <div class="icon">
+      <img src="./../../../../assets/images/icon-4.png" height="70px" width="auto">
+    </div>
+  </div>
+</div>

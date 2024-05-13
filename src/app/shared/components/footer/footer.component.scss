@@ -1,0 +1,19 @@
+.footer {
+  min-height: 70px;
+  width: 100%;
+
+
+  .icon {
+    cursor: pointer
+  }
+
+  .icon:hover {
+    opacity: 80%;
+  }
+
+  .footer-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
