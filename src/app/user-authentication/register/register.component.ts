@@ -42,6 +42,8 @@ export class RegisterComponent implements OnInit {
    this.router.navigate(['/auth/login'])
   }
 
+  
+
   ngOnInit(): void {
     this.fgRegister = this.fb.group({
       username: ['', Validators.required],
