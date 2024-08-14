@@ -1,6 +1,35 @@
 <div class="register">
   <div class="w-full max-w-xs">
     <form class="px-8 pt-6 pb-8 mb-4 flex flex-col gap-y-3" [formGroup]="fgRegister">
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          User Types
+        </label>
+        <app-dropdown selectLabel="Select Options" [items]="userTypes"
+          [control]="fgRegister.get('userType')"></app-dropdown>
+      </div>
+
+      <div *ngIf="fgRegister.get('userType').value==='Student'">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          ID Number
+        </label>
+        <app-input id="id" type="text" placeholder="ID Number" [control]="fgRegister.get('idNumber')"></app-input>
+      </div>
+
+      <div *ngIf="fgRegister.get('userType').value==='Counselor'">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Email
+        </label>
+        <app-input id="email" type="text" placeholder="Email" [control]="fgRegister.get('email')"></app-input>
+      </div>
+
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Name
+        </label>
+        <app-input id="name" type="text" placeholder="Name" [control]="fgRegister.get('name')"></app-input>
+      </div>
+
 
       <div>
         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">

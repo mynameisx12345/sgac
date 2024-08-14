@@ -20,6 +20,12 @@ export class RegisterComponent implements OnInit {
     { label: 'Dept2', value: 'dept2' },
   ];
 
+  userTypes = [
+    {label:'Student', value:'Student'},
+    {label:'Counselor', value:'Counselor'},
+    {label:'Administrator', value:'Administrator'},
+  ]
+
   goBack() {
     this.location.back();
   }
@@ -33,7 +39,10 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
       name: ['', Validators.required],
-      department: ['', Validators.required]
+      department: ['', Validators.required],
+      idNumber: [''],
+      email: ['', Validators.email],
+      userType: ['', Validators.required]
     })
   }
 }
