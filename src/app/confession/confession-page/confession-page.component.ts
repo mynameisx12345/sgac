@@ -54,7 +54,7 @@ export class ConfessionPageComponent implements OnInit {
   }
 
   addConfession(){
-    this.confessionService.addConfession({confession: this.fgConfession.get('confession').value, category:this.fgConfession.get('category').value, status:'New', action: '', id: Math.random().toString()})
+    this.confessionService.addConfession({confession: this.fgConfession.get('confession').value, category:this.fgConfession.get('category').value, status: 'New', action:'', id:Math.random().toString()})
   }
 
   done() {
