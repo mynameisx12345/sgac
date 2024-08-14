@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ConfessionService } from '../confession.service';
+import { BehaviorSubject, filter, switchMap, tap } from 'rxjs';
 
 
 const ELEMENT_DATA= [
@@ -28,17 +30,34 @@ const ELEMENT_DATA= [
 export class MyConfessionsComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['confession', 'status', 'action'];
+  displayedColumns: string[] = ['confession', 'category', 'status', 'action'];
   dataSource = new MatTableDataSource<any>;
 
-  constructor(private readonly router: Router){}
+  loadConfessions$ = new BehaviorSubject(false);
+
+  confession$ = this.loadConfessions$.pipe(
+    filter(value=>value),
+    switchMap(()=>this.confessionService.confession$),
+    tap((confessions)=>{
+      this.dataSource.data = confessions;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      this.loadConfessions$.next(false)
+    })
+  )
+
+  constructor(private readonly router: Router, private readonly confessionService: ConfessionService){}
   ngAfterViewInit(): void {
-    this.dataSource.data = ELEMENT_DATA;
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort
+    this.confession$.subscribe();
+    this.loadConfessions$.next(true);
+  }
+
+  deleteConfession(confession){
+    this.confessionService.removeConfession(confession);
   }
 
   gotoGuardian(element){
+    this.confessionService.updateConfession({...element,status:'Assigned'})
     console.log('element', element);
     this.router.navigateByUrl(`/confession/guardian?id=${element.id}`);
   }

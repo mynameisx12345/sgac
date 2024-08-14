@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ConfessionService } from '../confession.service';
 
 @Component({
   selector: 'app-confession-page',
@@ -13,7 +14,8 @@ export class ConfessionPageComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
     private readonly route: ActivatedRoute,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly confessionService: ConfessionService
   ) {}
   step = '1';
   categories = [
@@ -51,8 +53,13 @@ export class ConfessionPageComponent implements OnInit {
     this.selectedCategory = category.value;
   }
 
+  addConfession(){
+    this.confessionService.addConfession({confession: this.fgConfession.get('confession').value, category:this.fgConfession.get('category').value, status:'New', action: '', id: Math.random().toString()})
+  }
+
   done() {
     //this.step = '3';
+    this.addConfession();
     this.router.navigateByUrl('/confession/confess?step=3')
     this.fgConfession.reset();
   }
