@@ -16,8 +16,14 @@ export class RegisterComponent implements OnInit {
     private readonly router: Router
   ) {}
   departments = [
-    { label: 'CCS', value: 'ccs' },
-    { label: 'Dept2', value: 'dept2' },
+    { label: 'CCS', value: 'CCS' },
+    { label: 'CBM', value: 'CBM' },
+    { label: 'CTE', value: 'CTE' },
+    { label: 'COFES', value: 'COFES' },
+    { label: 'LAB HIGH', value: 'LAB HIGH' },
+
+
+
   ];
 
   userTypes = [
