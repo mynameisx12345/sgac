@@ -26,10 +26,12 @@ export class RegisterComponent implements OnInit {
 
   ];
 
-  userTypes = [
+  useTypes = [
     {label:'Student', value:'Student'},
     {label:'Counselor', value:'Counselor'},
-    {label:'Administrator', value:'Administrator'},
+    {label:'Administrator', value:'Administrator'}
+
+
   ]
 
   goBack() {
@@ -40,7 +42,10 @@ export class RegisterComponent implements OnInit {
    this.router.navigate(['/auth/login'])
   }
 
+  
+
   ngOnInit(): void {
+    console.log('test')
     this.fgRegister = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -48,7 +53,7 @@ export class RegisterComponent implements OnInit {
       department: ['', Validators.required],
       idNumber: [''],
       email: ['', Validators.email],
-      userType: ['', Validators.required]
+      userType:['', Validators.required]
     })
   }
 }
