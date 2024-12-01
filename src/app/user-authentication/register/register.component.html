@@ -33,6 +33,28 @@
 
       <div>
         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          User Type
+        </label>
+        <app-dropdown selectLabel="Select Options" [items]="useTypes"
+          [control]="fgRegister.get('userType')"></app-dropdown>
+      </div>
+
+      <div *ngIf="fgRegister.get('userType').value === 'Student'">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Username
+        </label>
+        <app-input id="idNumber" type="text" placeholder="ID Number" [control]="fgRegister.get('idNumber')"></app-input>
+      </div>
+
+      <div *ngIf="fgRegister.get('userType').value === 'Counselor'">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Username
+        </label>
+        <app-input id="email" type="text" placeholder="Email" [control]="fgRegister.get('email')"></app-input>
+      </div>
+
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
           Username
         </label>
         <app-input id="username" type="text" placeholder="Username" [control]="fgRegister.get('username')"></app-input>
